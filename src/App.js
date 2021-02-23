@@ -20,6 +20,18 @@ const testData = [
   },
 ];
 
+//Form
+class Form extends React.Component {
+  render() {
+    return (
+      <form action="">
+        <input type="text" placeholder="GitHub username" />
+        <button>Add card</button>
+      </form>
+    );
+  }
+}
+
 // List of Cards
 const CardList = (props) => (
   <div>
@@ -46,11 +58,16 @@ class Card extends React.Component {
 }
 
 class App extends React.Component {
+  state = {
+    profiles: testData,
+  };
+
   render() {
     return (
       <div className="Header">
         {this.props.title}
-        <CardList />
+        <Form />
+        <CardList profiles={this.state.profiles} />
       </div>
     );
   }
